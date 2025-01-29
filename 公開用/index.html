@@ -6,35 +6,71 @@
   <title>商品紹介 - カードデザイン</title>
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-    header { background-color: #6200ea; color: #fff; padding: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; }
-    header .logo { position: absolute; left: 20px; top: 20px; }
-    header .logo img { height: 80px; } /* ロゴマークのサイズ */
-    header h1 { margin: 0; font-size: 32px; } /* タイトルのフォントサイズ */
-    header p { font-size: 20px; margin-top: 5px; } /* 対応時間のフォントサイズ */
     
-    main { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; }
+    header {
+      background-color: #6200ea;
+      color: #fff;
+      padding: 20px;
+      padding-left: 120px; /* ロゴ分のスペースを確保 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    header .logo {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+    }
+
+    header .logo img {
+      height: 80px; /* ロゴマークのサイズ */
+    }
+
+    header h1 { 
+      margin: 0; 
+      font-size: 32px; /* タイトルのフォントサイズ */
+    }
+    
+    header p { 
+      font-size: 20px; 
+      margin-top: 5px; /* 対応時間のフォントサイズ */
+    }
+    
+    main { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+      gap: 20px; 
+      padding: 20px; 
+      max-width: 1200px; 
+      margin: 0 auto; 
+    }
 
     .card { 
       background: #fff; 
-  border-radius: 10px; 
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  overflow: hidden; 
-  transition: transform 0.3s; 
-  text-decoration: none; 
-  color: inherit; 
-  display: flex; 
-  flex-direction: column; 
-  height: 450px; /* カード全体の高さを調整 */
+      border-radius: 10px; 
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+      overflow: hidden; 
+      transition: transform 0.3s; 
+      text-decoration: none; 
+      color: inherit; 
+      display: flex; 
+      flex-direction: column; 
+      height: 450px; /* カード全体の高さを調整 */
     }
 
-    .card:hover { transform: scale(1.05); }
-    
-.card img { 
-  width: 100%; 
-  height: 250px; /* 高さを設定 */
-  object-fit: cover; /* 画像が枠全体を覆うように調整 */
-  border-bottom: 2px solid #ddd; 
-}
+    .card:hover { 
+      transform: scale(1.05); 
+    }
+
+    .card img { 
+      width: 100%; 
+      height: 250px; /* 高さを設定 */
+      object-fit: cover; /* 画像が枠全体を覆うように調整 */
+      border-bottom: 2px solid #ddd; 
+    }
 
     .card-body { 
       padding: 15px; 
