@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品紹介 - カードデザイン</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
+    header { background-color: #6200ea; color: #fff; padding: 20px; display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center; }
+    header .logo { position: absolute; left: 20px; top: 20px; }
+    header .logo img { height: 80px; } /* ロゴマークのサイズ */
+    header h1 { margin: 0; font-size: 32px; } /* タイトルのフォントサイズ */
+    header p { font-size: 20px; margin-top: 5px; } /* 対応時間のフォントサイズ */
+    
+    main { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1200px; margin: 0 auto; }
+
+    .card { 
+      background: #fff; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  overflow: hidden; 
+  transition: transform 0.3s; 
+  text-decoration: none; 
+  color: inherit; 
+  display: flex; 
+  flex-direction: column; 
+  height: 450px; /* カード全体の高さを調整 */
+    }
+
+    .card:hover { transform: scale(1.05); }
+    
+.card img { 
+  width: 100%; 
+  height: 250px; /* 高さを設定 */
+  object-fit: cover; /* 画像が枠全体を覆うように調整 */
+  border-bottom: 2px solid #ddd; 
+}
+
+    .card-body { 
+      padding: 15px; 
+      flex-grow: 1; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-between; 
+    }
+
+    .card-title { 
+      font-size: 18px; 
+      font-weight: bold; 
+      margin: 0 0 10px; 
+    }
+
+    .card-text { 
+      font-size: 14px; 
+      color: #666; 
+    }
+
+    .card-footer { 
+      font-size: 16px; 
+      margin-top: 10px; 
+      font-weight: bold; 
+      color: #6200ea; 
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo">
+    </div>
+    <h1>Product Gallery</h1>
+    <p>Available on Facebook Messenger from 10 AM to 5 PM.</p>
+  </header>
+
+  <main>
+
+    <!-- 商品カード1 -->
+    <div class="card" onclick="goToDetail('18k Japan Gold Bracelet red coral Sango (on hand)', '1.jpg', 'Pre order for 2 weeks')">
+      <img src="1.jpg" alt="商品1">
+      <div class="card-body">
+        <h2 class="card-title">18k Japan Gold Bracelet red coral Sango (on hand)</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード2 -->
+    <div class="card" onclick="goToDetail('18k Japan Gold Bracelet black coral Sango (on hand)', '2.jpg', 'Pre order for 2 weeks')">
+      <img src="2.jpg" alt="商品2">
+      <div class="card-body">
+        <h2 class="card-title">18k Japan Gold Bracelet black coral Sango (on hand)</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード3 -->
+    <div class="card" onclick="goToDetail('18k gold Japan pendant (available)', '3.jpg', 'Pre order for 2 weeks')">
+      <img src="3.jpg" alt="商品3">
+      <div class="card-body">
+        <h2 class="card-title">18k gold Japan pendant (available)</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード4 -->
+    <div class="card" onclick="goToDetail('18 k Japan Gold Dolphin earrings', '4.jpg', 'Pre order for 2 weeks')">
+      <img src="4.jpg" alt="商品4">
+      <div class="card-body">
+        <h2 class="card-title">18 k Japan Gold Dolphin earrings</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>      
+    </div>
+
+    <!-- 商品カード5 -->
+    <div class="card" onclick="goToDetail('18 k Japan 🇯🇵 Gold money catcher design set earring and pendant', '5.jpg', 'Pre order for 2 weeks')">
+      <img src="5.jpg" alt="商品5">
+      <div class="card-body">
+        <h2 class="card-title">18 k Japan 🇯🇵 Gold money catcher design set earring and pendant</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+<!-- 商品カード6 -->
+    <div class="card" onclick="goToDetail('18k Japan gold necklace cross pendant (on hand)', '6.jpg', 'Pre order for 2 weeks')">
+      <img src="6.jpg" alt="商品6">
+      <div class="card-body">
+        <h2 class="card-title">18k Japan gold necklace cross pendant (on hand)</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード7 -->
+    <div class="card" onclick="goToDetail('18k gold Japan 🇯🇵 White gold V design earrings (available) ready to ship', '7.jpg', 'Pre order for 2 weeks')">
+      <img src="7.jpg" alt="商品7">
+      <div class="card-body">
+        <h2 class="card-title">18k gold Japan 🇯🇵 White gold V design earrings (available) ready to ship</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード8 -->
+    <div class="card" onclick="goToDetail('2025 Year of Snake 🐍 18k Gold Japan Ring 🐍', '8.jpg', 'Pre order for 2 weeks')">
+      <img src="8.jpg" alt="商品8">
+      <div class="card-body">
+        <h2 class="card-title">2025 Year of Snake 🐍 18k Gold Japan Ring 🐍</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード9 -->
+    <div class="card" onclick="goToDetail('2025 Year of Snake 🐍 18k Gold Japan pendant 🐍', '9.jpg', 'Pre order for 2 weeks')">
+      <img src="9.jpg" alt="商品9">
+      <div class="card-body">
+        <h2 class="card-title">2025 Year of Snake 🐍 18k Gold Japan pendant 🐍</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード10 -->
+    <div class="card" onclick="goToDetail('18k gold Japan pendant clover design', '10.jpg', 'Pre order for 2 weeks')">
+      <img src="10.jpg" alt="商品10">
+      <div class="card-body">
+        <h2 class="card-title">18k gold Japan pendant clover design</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード11 -->
+    <div class="card" onclick="goToDetail('18k gold Japan clover ring design', '11.jpg', 'Pre order for 2 weeks')">
+      <img src="11.jpg" alt="商品11">
+      <div class="card-body">
+        <h2 class="card-title">18k gold Japan clover ring design</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード12 -->
+    <div class="card" onclick="goToDetail('18k gold Japan clover bracelet design', '12.jpg', 'Pre order for 2 weeks')">
+      <img src="12.jpg" alt="商品12">
+      <div class="card-body">
+        <h2 class="card-title">18k gold Japan clover bracelet design</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード13 -->
+    <div class="card" onclick="goToDetail('18 k Japan gold Clover design bracelet', '12.jpg', 'Pre order for 2 weeks')">
+      <img src="13.jpg" alt="商品13">
+      <div class="card-body">
+        <h2 class="card-title">18 k Japan gold Clover design bracelet</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+    <!-- 商品カード14 -->
+    <div class="card" onclick="goToDetail('18 k Japan gold Inspired cc design set pendant and earrings (on hand) ready to ship😊', '14.jpg', 'Pre order for 2 weeks')">
+      <img src="14.jpg" alt="商品14">
+      <div class="card-body">
+        <h2 class="card-title">18 k Japan gold Inspired cc design set pendant and earrings (on hand) ready to ship😊</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
+
+  </main>
+
+  <script>
+    function goToDetail(name, image, description) {
+      const url = `product2.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&description=${encodeURIComponent(description)}`;
+      window.location.href = url;
+    }
+  </script>
+</body>
+</html>
