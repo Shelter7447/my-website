@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Details</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; text-align: center; }
+    header { background-color: #6200ea; color: #fff; padding: 20px; text-align: center; }
+    main { max-width: 900px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
+    .image-container { display: flex; justify-content: center; align-items: center; }
+    img { width: 90%; max-width: 550px; height: auto; border-radius: 10px; margin: 20px 0; }
+    h1 { margin: 0 0 15px; }
+    p { line-height: 1.6; padding: 0 15px; }
+    .btn { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #6200ea; color: #fff; text-decoration: none; border-radius: 5px; }
+    .btn:hover { background-color: #3700b3; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="product-name">商品名</h1>
+  </header>
+  <main>
+    <div class="image-container">
+      <img id="product-image" src="" alt="商品画像">
+    </div>
+    <h1 id="product-name-main">商品名</h1>
+    <p id="product-description">商品の説明がここに入ります。</p>
+    
+    <!-- 問い合わせボタンを追加 -->
+    <a href="https://www.facebook.com/profile.php?id=100064166676387" class="btn" target="_blank">Contact Us</a>
+    
+    <!-- 戻るボタン -->
+    <a href="index.html" class="btn">Back</a>
+  </main>
+
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param) || "";
+    }
+
+    document.getElementById("product-name").textContent = getQueryParam("name");
+    document.getElementById("product-name-main").textContent = getQueryParam("name");
+    document.getElementById("product-image").src = getQueryParam("image");
+    document.getElementById("product-image").alt = getQueryParam("name") + "の画像";
+    document.getElementById("product-description").textContent = getQueryParam("description");
+  </script>
+</body>
+</html>

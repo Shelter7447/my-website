@@ -7,11 +7,53 @@
   <style>
     body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f9f9f9; color: #333; text-align: center; }
     header { background-color: #6200ea; color: #fff; padding: 20px; text-align: center; }
-    main { max-width: 900px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); }
-    .image-container { display: flex; justify-content: center; align-items: center; }
-    img { width: 90%; max-width: 550px; height: auto; border-radius: 10px; margin: 20px 0; }
+    main { max-width: 900px; margin: 20px auto; padding: 20px; background: #fff; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; }
+    
+    /* 画像コンテナを拡大 */
+    .image-container {
+      width: 100%;
+      max-width: 600px;
+      height: 450px; /* サイズを大きく */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 20px auto;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    /* 画像サイズ調整 */
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    /* ナビゲーションボタンの共通スタイル */
+    .nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      border: none;
+      font-size: 28px;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 50px;  /* ボタンを少し大きく */
+      height: 50px;
+    }
+
+    #prevBtn { left: 15px; }
+    #nextBtn { right: 15px; }
+    
     h1 { margin: 0 0 15px; }
     p { line-height: 1.6; padding: 0 15px; }
+    
     .btn { display: inline-block; margin-top: 20px; padding: 10px 15px; background-color: #6200ea; color: #fff; text-decoration: none; border-radius: 5px; }
     .btn:hover { background-color: #3700b3; }
   </style>
@@ -22,29 +64,69 @@
   </header>
   <main>
     <div class="image-container">
+      <button id="prevBtn" class="nav-btn">&lt;</button>
       <img id="product-image" src="" alt="商品画像">
+      <button id="nextBtn" class="nav-btn">&gt;</button>
     </div>
     <h1 id="product-name-main">商品名</h1>
     <p id="product-description">商品の説明がここに入ります。</p>
     
-    <!-- 問い合わせボタンを追加 -->
     <a href="https://www.facebook.com/profile.php?id=100064166676387" class="btn" target="_blank">Contact Us</a>
-    
-    <!-- 戻るボタン -->
     <a href="index.html" class="btn">Back</a>
   </main>
 
-  <script>
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param) || "";
-    }
+ <script>
+  function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param) || "";
+  }
 
-    document.getElementById("product-name").textContent = getQueryParam("name");
-    document.getElementById("product-name-main").textContent = getQueryParam("name");
-    document.getElementById("product-image").src = getQueryParam("image");
-    document.getElementById("product-image").alt = getQueryParam("name") + "の画像";
-    document.getElementById("product-description").textContent = getQueryParam("description");
-  </script>
+  document.getElementById("product-name").textContent = getQueryParam("name");
+  document.getElementById("product-name-main").textContent = getQueryParam("name");
+  document.getElementById("product-description").textContent = getQueryParam("description");
+
+  // 画像のリストを取得して配列化
+  const imageUrls = getQueryParam("image").split(",").filter(url => url.trim() !== "");
+  let currentImageIndex = 0; // 現在の画像インデックス
+  const productImage = document.getElementById("product-image");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  // 最初の画像を表示
+  function updateImage() {
+    if (imageUrls.length > 0) {
+      productImage.src = imageUrls[currentImageIndex].trim();
+      productImage.alt = getQueryParam("name") + "の画像";
+    }
+  }
+
+  // 画像が1枚しかない場合、ボタンを非表示にする
+  function checkButtons() {
+    if (imageUrls.length <= 1) {
+      prevBtn.style.display = "none";
+      nextBtn.style.display = "none";
+    } else {
+      prevBtn.style.display = "block";
+      nextBtn.style.display = "block";
+    }
+  }
+
+  // 「前の画像」ボタン
+  prevBtn.addEventListener("click", function() {
+    currentImageIndex = (currentImageIndex - 1 + imageUrls.length) % imageUrls.length;
+    updateImage();
+  });
+
+  // 「次の画像」ボタン
+  nextBtn.addEventListener("click", function() {
+    currentImageIndex = (currentImageIndex + 1) % imageUrls.length;
+    updateImage();
+  });
+
+  // 初回処理
+  updateImage();
+  checkButtons(); // 画像の数をチェック
+</script>
+
 </body>
 </html>

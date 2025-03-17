@@ -111,18 +111,14 @@
 
   <main>
 
-  <!-- 商品カード20と19 -->
-<div class="card" onclick="goToDetail(
-  '18 k Japan gold heart 💛 design necklace with diamond (on hand) ready to ship', 
-  ['20.jpg', '19.jpg'],  <!-- 修正: [] で配列にする。 ['20.jpg', '19.jpg'] -->
-  'Pre order for 2 weeks'
-)">
-  <img src="20.jpg" alt="商品20と19">
-  <div class="card-body">
-    <h2 class="card-title">18 k Japan gold heart 💛 design necklace with diamond (on hand) ready to ship</h2>
-    <p class="card-text">Pre order for 2 weeks</p>
-  </div>
-</div>
+  <!-- 商品カード20 -->
+    <div class="card" onclick="goToDetail('18 k Japan gold heart 💛 design necklace with diamond (on hand) ready to ship', '20.jpg', 'Pre order for 2 weeks')">
+      <img src="20.jpg" alt="商品20">
+      <div class="card-body">
+        <h2 class="card-title">18 k Japan gold heart 💛 design necklace with diamond (on hand) ready to ship</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
 
     <!-- 商品カード18 -->
     <div class="card" onclick="goToDetail('18k Japan gold initial S necklace', '18.jpg', 'Pre order for 2 weeks')">
@@ -142,18 +138,17 @@
       </div>
     </div>
 
-  <!-- 商品カード15と16 -->
-<div class="card" onclick="goToDetail(
-  '18k Japan gold Emerald Diamonds 💎 set with certificate 1)2)18k Japan gold wg Lady Boss design 45 cm with venetian chain', 
-  ['15.jpg', '16.jpg'],  <!-- 修正: [] で配列にする。 ['20.jpg', '19.jpg'] -->
-  'Pre order for 2 weeks'
-)">
-  <img src="15.jpg" alt="商品15と16">
-  <div class="card-body">
-    <h2 class="card-title">18k Japan gold Emerald Diamonds 💎 set with certificate 1)2)18k Japan gold wg Lady Boss design 45 cm with venetian chain</h2>
-    <p class="card-text">Pre order for 2 weeks</p>
-  </div>
-</div>
+
+<!-- 商品カード15 -->
+    <div class="card" onclick="goToDetail('18k Japan gold Emerald Diamonds 💎 set with certificate 1)2)18k Japan gold wg Lady Boss design 45 cm with venetian chain', '15.jpg', 'Pre order for 2 weeks')">
+      <img src="15.jpg" alt="商品15">
+      <div class="card-body">
+        <h2 class="card-title">18k Japan gold Emerald Diamonds 💎 set with certificate 1)
+2)18k Japan gold wg Lady Boss design 45 cm with venetian chain</h2>
+        <p class="card-text">Pre order for 2 weeks</p>
+      </div>
+    </div>
+
 
     <!-- 商品カード1 -->
     <div class="card" onclick="goToDetail('18k Japan Gold Bracelet red coral Sango (on hand)', '1.jpg', 'Pre order for 2 weeks')">
@@ -284,23 +279,11 @@
 
   </main>
 
-<script>
-function goToDetail(name, images, description) {
-  // imagesが文字列だった場合、配列に変換
-  if (typeof images === "string") {
-    images = [images]; // 文字列を配列化
-  }
-
-  // 配列をカンマ区切りの文字列に変換
-  const imageParam = images.join(',');
-
-  // URLを作成し、エンコードして渡す
-  const url = `product2.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(imageParam)}&description=${encodeURIComponent(description)}`;
-  
-  // 商品詳細ページへ遷移
-  window.location.href = url;
-}
-
-</script>
+  <script>
+    function goToDetail(name, image, description) {
+      const url = `product2.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&description=${encodeURIComponent(description)}`;
+      window.location.href = url;
+    }
+  </script>
 </body>
 </html>
